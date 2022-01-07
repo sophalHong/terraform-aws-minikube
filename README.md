@@ -17,8 +17,8 @@ Additionally, if variable `private_subnets` is set to true, it will create:
 - [Amazon AWS VPC](#amazon-aws-vpc)
     - [Prerequisites and dependencies](#prerequisites-and-dependencies)
     - [Configuration](#configuration)
-    - [Creating the VPC](#creating-the-aws-minikube)
-    - [Deleting the VPC](#deleting-the-aws-minikube)
+    - [Creating the AWS Minikube](#creating-the-aws-minikube)
+    - [Deleting the AWS Minikube](#deleting-the-aws-minikube)
 
 <!-- /TOC -->
 
