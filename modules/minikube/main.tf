@@ -1,11 +1,3 @@
-terraform {
-  required_version = ">= 1.0.0"
-}
-
-provider "aws" {
-  region = var.aws_region
-}
-
 # Security Group
 data "aws_subnet" "minikube_subnet" {
   id = var.aws_subnet_id
@@ -222,4 +214,22 @@ resource "aws_route53_record" "minikube" {
   type = "A"
   records = [aws_eip.minikube.public_ip]
   ttl = 300
+}
+
+resource "null_resource" "k8s-installation" {
+  depends_on = [aws_instance.minikube]
+  connection {
+    host        = aws_eip.minikube.public_ip
+    user        = "centos"
+    type        = "ssh"
+    private_key = file(var.ssh_private_key)
+    agent       = false
+    timeout     = "300s"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo cloud-init status --wait > /dev/null",
+      "sleep 30; sudo kubectl --kubeconfig /etc/kubernetes/admin.conf get node,pod,svc -A"
+    ]
+  }
 }

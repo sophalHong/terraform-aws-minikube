@@ -1,6 +1,5 @@
 variable "aws_region" {
   description = "Region where Cloud Formation is created"
-  default     = "eu-central-1"
 }
 
 variable "cluster_name" {
@@ -26,8 +25,13 @@ variable "aws_subnet_id" {
   description = "The subnet-id to be used for the instance"
 }
 
+variable "ssh_private_key" {
+  description = "Path to the private part of SSH key which should be used for the instance"
+  default     = "~/.ssh/id_rsa"
+}
+
 variable "ssh_public_key" {
-  description = "Path to the pulic part of SSH key which should be used for the instance"
+  description = "Path to the public part of SSH key which should be used for the instance"
   default     = "~/.ssh/id_rsa.pub"
 }
 

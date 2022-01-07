@@ -3,7 +3,6 @@
 variable "aws_region" {
   type        = string
   description = "AWS region which should be used"
-  default     = "ap-northeast-1"
 }
 
 variable "aws_zones" {
@@ -52,8 +51,13 @@ variable "aws_instance_type" {
   default     = "t2.medium"
 }
 
+variable "ssh_private_key" {
+  description = "Path to the private part of SSH key which should be used for the instance"
+  default     = "~/.ssh/id_rsa"
+}
+
 variable "ssh_public_key" {
-  description = "Path to the pulic part of SSH key which should be used for the instance"
+  description = "Path to the public part of SSH key which should be used for the instance"
   default     = "~/.ssh/id_rsa.pub"
 }
 

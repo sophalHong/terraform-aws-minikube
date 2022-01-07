@@ -1,12 +1,3 @@
-terraform {
-  required_version = ">= 1.0.0"
-}
-
-## AWS Provider
-provider "aws" {
-  region = "${var.aws_region}"
-}
-
 ## VPC
 resource "aws_vpc" "vpc" {
   cidr_block = "${var.vpc_cidr}"
