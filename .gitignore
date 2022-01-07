@@ -1,0 +1,8 @@
+# Terraform state files
+kubeconfig*
+*.tfstate
+*.tfstate.backup
+*.tfstate.*.backup
+jakub.tfvars
+.terraform*
+*.swp
