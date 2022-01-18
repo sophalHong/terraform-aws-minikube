@@ -23,7 +23,6 @@ resource "aws_subnet" "public_subnet" {
   tags = "${merge(tomap({Name =  format("%v-public-%v", var.vpc_name, var.aws_zones[count.index])}), var.tags)}"
 }
 
-## Private Subnets
 resource aws_eip nat {
   count = "${var.private_subnets == "true" ? length(var.aws_zones) : 0}"
   vpc      = true
@@ -39,6 +38,7 @@ resource aws_nat_gateway nat {
   depends_on = [aws_eip.nat, aws_internet_gateway.gw, aws_subnet.public_subnet]
 }
 
+## Private Subnets
 resource "aws_subnet" "private_subnet" {
   count = "${var.private_subnets == "true" ? length(var.aws_zones) : 0}"
   vpc_id = "${aws_vpc.vpc.id}"
