@@ -25,6 +25,11 @@ variable "aws_subnet_id" {
   description = "The subnet-id to be used for the instance"
 }
 
+variable "ssh_user" {
+  description = "SSH user"
+  default     = "centos"
+}
+
 variable "ssh_private_key" {
   description = "Path to the private part of SSH key which should be used for the instance"
   default     = "~/.ssh/id_rsa"

@@ -6,3 +6,4 @@ kubeconfig*
 jakub.tfvars
 .terraform*
 *.swp
+*.swo

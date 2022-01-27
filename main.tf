@@ -25,6 +25,7 @@ module "minikube" {
   aws_region           = var.aws_region
   cluster_name         = var.cluster_name
   aws_instance_type    = var.aws_instance_type
+  ssh_user             = var.ssh_user
   ssh_private_key      = var.ssh_private_key
   ssh_public_key       = var.ssh_public_key
   aws_subnet_id        = module.vpc.subnet_ids[0]

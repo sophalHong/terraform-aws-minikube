@@ -6,12 +6,13 @@ vpc_cidr        = "10.0.0.0/16"
 private_subnets = "false"
 
 ### EC2 instance setting
-cluster_name = "my-minikube"
+#hosted_zone       = "example.org"
+cluster_name      = "my-minikube"
 aws_instance_type = "t2.medium"
-ssh_private_key = "~/.ssh/id_rsa"
-ssh_public_key = "~/.ssh/id_rsa.pub"
-#hosted_zone         = "example.com"
-ami_image_id = "ami-063c5a5e375b71d95" # Centos Linux 8.4.2105
+ssh_private_key   = "~/.ssh/id_rsa"
+ssh_public_key    = "~/.ssh/id_rsa.pub"
+ssh_user          = "centos"
+ami_image_id      = "ami-063c5a5e375b71d95" # Centos Linux 8.4.2105
 tags = {
   Application = "Minikube"
 }

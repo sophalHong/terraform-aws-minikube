@@ -220,7 +220,7 @@ resource "null_resource" "k8s-installation" {
   depends_on = [aws_instance.minikube]
   connection {
     host        = aws_eip.minikube.public_ip
-    user        = "centos"
+    user        = var.ssh_user
     type        = "ssh"
     private_key = file(var.ssh_private_key)
     agent       = false
